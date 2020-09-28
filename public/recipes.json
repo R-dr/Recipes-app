@@ -1,6 +1,11 @@
+
 {
-  "cuisines": null,
-  "name": null,
-  "recipe": null,
-  "time_to_cook": null
+  {cuisine: "french", "italian"},
+  {name: "spagehtti",},
+  {time_to_cook: 40},
+  {ingredients: {pasta:200,
+    meat:1000,
+     tomaotes:300,
+     carrots:100 }},
+  {recipe: "sweat onions, add carrots then tomoatoes, brown meat and cook 30 mins"}
 }

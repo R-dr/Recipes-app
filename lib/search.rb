@@ -1,6 +1,8 @@
 require 'faraday'
 require 'json'
 require 'tty-prompt'
+require 'byebug'
+require 'nokogiri'
 module RecipeHelper
   path = File.dirname(__FILE__).split("/")
   path.pop
@@ -21,8 +23,9 @@ class Search
 
     def search
        @json_string = Faraday.get("#{@@api_root}/recipes/random#{@@api_key}")
-        JSON.parse(@json_string)
-
+       JSON.parse(@json_string)
+       byebug
+        pp @json_string.to_s
        
        parsed_hash = @json_string
        @results = {}
@@ -31,7 +34,6 @@ class Search
        @results[:recipe] = parsed_hash["instructions"] #returns string, need to gsub(/n,"")
        @results[:time_to_cook] = parsed_hash["readyInMinutes"] # returns integer, turn to stirng if needed?
        json_hash
-  
     end
       
   def write_recipes
@@ -44,4 +46,3 @@ end
 request = Search.new
 request.search
 request.write_recipes
-json_string = Faraday.get("https://api.spoonacular.com/recipes/random?apiKey=945916246cc3460dbfe56c71616e4d96")
