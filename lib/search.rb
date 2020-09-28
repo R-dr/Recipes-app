@@ -29,7 +29,7 @@ class Search
         @results = {}
         @results[:name] = content[0]["title"] # returns string
         @results[:serves] = content[0]['servings']
-        @results[:description] = content[0]['summary']
+        @results[:description] = content[0]['summary'].gsub(/<\/?[^>]+>/, '')
         @results[:recipe] = content[0]["instructions"].gsub(/<\/?[^>]+>/, '') #returns string, need to gsub(/n,"")
         @results[:time_to_cook] = content[0]["readyInMinutes"] # returns integer, turn to stirng if needed?
         @results[:url] = content[0]['sourceUrl']
@@ -38,7 +38,7 @@ class Search
     end
       
   def write_recipes
-    File.write("../public/recipes.json",JSON.pretty_generate(@results))
+    File.write("../public/recipes.json",JSON.pretty_generate(@results),mode: "a")
   end
     def show
      "#{@result}"
