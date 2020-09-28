@@ -41,11 +41,13 @@ class Search
     File.write("../public/recipes.json",JSON.pretty_generate(@results),mode: "a")
   end
     def read_recipes
-     temp = File.read("../public/recipes.json")
-      JSON.parse(temp)
-    end
+      file = File.read("../public/recipes.json")
+      file_hash=JSON.parse(file)
+      file_hash["name"]
+      byebug
+    end 
+    
   end
 
 request = Search.new
-request.search
- p request.read_recipes
+request.read_recipes.class
