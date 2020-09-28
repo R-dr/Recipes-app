@@ -2,7 +2,7 @@ require 'faraday'
 require 'json'
 require 'tty-prompt'
 require 'byebug'
-require 'nokogiri'
+
 module RecipeHelper
   path = File.dirname(__FILE__).split("/")
   path.pop
@@ -22,22 +22,23 @@ class Search
       end
 
     def search
-       @json_string = Faraday.get("#{@@api_root}/recipes/random#{@@api_key}")
-       JSON.parse(@json_string)
-       byebug
-        pp @json_string.to_s
-       
-       parsed_hash = @json_string
-       @results = {}
-       @results[:cuisines] = parsed_hash["cuisines"] #returns array
-       @results[:name] = parsed_hash["title"] # returns string
-       @results[:recipe] = parsed_hash["instructions"] #returns string, need to gsub(/n,"")
-       @results[:time_to_cook] = parsed_hash["readyInMinutes"] # returns integer, turn to stirng if needed?
-       json_hash
+       @json_string = Faraday.get("#{@@api_root}/recipes/random#{@@api_key}").body
+       @json_hash = JSON.parse(@json_string)
+        parsed_hash = @json_hash
+        content = parsed_hash["recipes"].each{|arr|arr}
+        @results = {}
+        @results[:name] = content[0]["title"] # returns string
+        @results[:serves] = content[0]['servings']
+        @results[:description] = content[0]['summary']
+        @results[:recipe] = content[0]["instructions"].gsub(/<\/?[^>]+>/, '') #returns string, need to gsub(/n,"")
+        @results[:time_to_cook] = content[0]["readyInMinutes"] # returns integer, turn to stirng if needed?
+        @results[:url] = content[0]['sourceUrl']
+        @results
+        byebug
     end
       
   def write_recipes
-    File.write("../public/recipes.json",JSON.pretty_generate(@json_string))
+    File.write("../public/recipes.json",JSON.pretty_generate(@results))
   end
     def show
      "#{@result}"
