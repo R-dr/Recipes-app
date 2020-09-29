@@ -33,22 +33,24 @@ class Api
   end
 
   def write_recipes
-    file = read_recipes
-    file << @results
-   
-    File.write(File_path, JSON.pretty_generate(file))
-    
+    @@file = read_recipes
+    @@file << @results
+    File.write(File_path, JSON.pretty_generate(@@file))
   end
 
   def read_recipes
     file = File.read(File_path)
     file_hash = JSON.parse(file)
-    
+    file_hash
   end
+  def filter(num,parameter)
+     read_recipes[num][parameter]
+    end
+
+    
 end
 
 request = Api.new
-
-request.write_recipes 
-byebug
-pp request.read_recipes
+#request.write_recipes 
+request.read_recipes
+ p request.filter(3,'name')
