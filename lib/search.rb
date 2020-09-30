@@ -15,10 +15,13 @@ class Api
   def initialze
     read_recipes
   end
-  def search_api_recipes
+  def search_random_recipes
     content = JSON.parse(Faraday.get("#{@@api_root}/recipes/random#{@@api_key}").body)["recipes"]
     convert_api_data(content)
-    
+  end
+  def search_complex_search(query)
+    parsed_hash = JSON.parse(Faraday.get("https://api.spoonacular.com/recipes/complexSearch?apiKey=945916246cc3460dbfe56c71616e4d96&query=#{query}").body)
+    convert_api_data(parsed_hash)
   end
  def convert_api_data(data)
   @results = {}
@@ -58,8 +61,8 @@ end
   end
 end
 
-request = Api.new
-request.read_recipes
-p request.search_api_recipes
+# request = Api.new
+#request.read_recipes
+#p request.search_random_recipes
 
-request.write_recipes
+#request.write_recipes 

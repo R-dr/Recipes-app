@@ -1,11 +1,141 @@
-
-{
-  {cuisine: "french", "italian"},
-  {name: "spagehtti",},
-  {time_to_cook: 40},
-  {ingredients: {pasta:200,
-    meat:1000,
-     tomaotes:300,
-     carrots:100 }},
-  {recipe: "sweat onions, add carrots then tomoatoes, brown meat and cook 30 mins"}
-}
+[
+  {
+    "name": "Beef Tenderloin With Creamy Alouette® Mushroom Sauce",
+    "serves": 2,
+    "description": "You can never have too many side dish recipes, so give Beef Tenderloin With Creamy Alouette® Mushroom Sauce a try. Watching your figure? This gluten free and primal recipe has 371 calories, 11g of protein, and 33g of fat per serving. This recipe serves 2 and costs $1.74 per serving. 40 people have tried and liked this recipe. If you have beef tenderloin steaks, milk, shallot, and a few other ingredients on hand, you can make it. From preparation to the plate, this recipe takes approximately 45 minutes. All things considered, we decided this recipe deserves a spoonacular score of 51%. This score is solid. Try Beef Tenderloin with Mushroom Sauce, Beef Tenderloin in Mushroom Sauce, and Beef Tenderloin with Mushroom-Red Wine Sauce for similar recipes.",
+    "ingredients": [
+      "2 cups sliced baby Portobello mushrooms",
+      "2 ounces beef tenderloin steaks, 11/2 inches thick (6 to 8 ounes each)",
+      "1/4 cup butter",
+      "3 teaspoons extra virgin olive oil, divided",
+      "1 teaspoon minced fresh parsley, if desired",
+      "1/2 cup milk",
+      "1/2 large shallot, thinly slivered",
+      "1/4 cup Alouette® Garlic & Herbs, or Alouette® Savory Vegetable"
+    ],
+    "recipe": "Heat broiler.Coat all sides of tenderloin with 1 tsp. of the olive oil.  Place on broiler pan.  Season to taste with salt and pepper.  Broil 4 inches from heat for 6 minutes or until well-browned. Turn. Broil 6 to 8 minutes or until desired doneness.Meanwhile, heat remaining olive oil and the butter in small skillet over medium heat.Add shallot; cook 1 minute.Add mushrooms.  Cook 2 to 3 minutes or until tender, stirring frequently.Stir in Alouette, adding milk to desired consistency.  Heat just until warm.Spoon sauce over tenderloins.  Sprinkle with parsley.",
+    "time_to_cook": 45,
+    "url": "http://www.foodista.com/recipe/6JNVQ85J/beef-tenderloin-with-creamy-alouette-mushroom-sauce"
+  },
+  {
+    "name": "Crispy Buttermilk Fried Chicken",
+    "serves": 6,
+    "description": "Forget going out to eat or ordering takeout every time you crave Southern food. Try making Crispy Buttermilk Fried Chicken at home. One portion of this dish contains roughly 16g of protein, 15g of fat, and a total of 260 calories. For 62 cents per serving, this recipe covers 9% of your daily requirements of vitamins and minerals. This recipe serves 6. 53 people found this recipe to be delicious and satisfying. This recipe from Foodista requires vegetable oil, buttermilk, salt, and paprika. It works best as a main course, and is done in roughly around 45 minutes. Taking all factors into account, this recipe earns a spoonacular score of 38%, which is rather bad. Users who liked this recipe also liked Crispy Buttermilk Fried Chicken, Crispy Buttermilk Fried Chicken, and Crispy Oven Fried Buttermilk Chicken.",
+    "ingredients": [
+      "2 pounds chicken",
+      "3/4 cup flour",
+      "2 teaspoons salt",
+      "1 teaspoon paprika",
+      "1 teaspoon pepper",
+      "1 cup buttermilk",
+      "Vegetable oil (enough to cover chicken), about 1 quart"
+    ],
+    "recipe": "Mix flour, salt, paprika and pepper. Dip chicken in buttermilk and then into flour mixture. Cook chicken in oil, starting on medium-high heat, then, when chicken is browned, reduce heat to medium and cook an additional 30 to 35 minutes until chicken is done (approx 150-155 degrees F internal), turning occasionally.",
+    "time_to_cook": 45,
+    "url": "https://www.foodista.com/recipe/G2QDD6GF/crispy-buttermilk-fried-chicken"
+  },
+  {
+    "name": "Cherry Lime Mojito",
+    "serves": 1,
+    "description": "Cherry Lime Mojito is a gluten free, dairy free, lacto ovo vegetarian, and vegan recipe with 1 servings. This beverage has 184 calories, 1g of protein, and 0g of fat per serving. For $2.23 per serving, this recipe covers 3% of your daily requirements of vitamins and minerals. From preparation to the plate, this recipe takes around around 45 minutes. 21 person were impressed by this recipe. This recipe from Foodista requires carbonated water, mint leaves, lime, and rum. With a spoonacular score of 9%, this dish is very bad (but still fixable). If you like this recipe, take a look at these similar recipes: Sparkling Cherry Lime Mojito Punch, The Ultimate Mojito… The Sequel – The Cherry Mojito, and Crimson Tide Mojito (Cherry Mojito).",
+    "ingredients": [
+      "4 cherries, pitted and quartered",
+      "6 mint leaves",
+      "1/4 lime cut into wedges",
+      "1 1/2 teaspoons demerara sugar",
+      "2 ounces white rum",
+      "1 cup carbonated water (I used Lime flavored San Pellegrino)"
+    ],
+    "recipe": "Place cherries, mint, sugar and lime in a tall glass.Muddle ingredients together at the bottom of the glass.Add a few ice cubes and pour in the rum.Fill the glass the rest of the way with carbonated water and serve.",
+    "time_to_cook": 45,
+    "url": "https://www.foodista.com/recipe/82DFQ4GB/cherry-lime-mojito"
+  },
+  {
+    "name": "Sterling Cooper Blini with Caviar",
+    "serves": 16,
+    "description": "Sterling Cooper Blini with Caviar might be just the morn meal you are searching for. For 25 cents per serving, this recipe covers 2% of your daily requirements of vitamins and minerals. Watching your figure? This pescatarian recipe has 84 calories, 1g of protein, and 7g of fat per serving. A few people made this recipe, and 22 would say it hit the spot. This recipe is typical of Eastern European cuisine. A mixture of cream, sugar, caviar, and a handful of other ingredients are all it takes to make this recipe so yummy. From preparation to the plate, this recipe takes around 45 minutes. All things considered, we decided this recipe deserves a spoonacular score of 11%. This score is not so amazing. Similar recipes include Sterling Cooper Sling Cocktail, Vichyssoise of Kumumoto Oysters and Royal Sterling Caviar, and Potato Blini with Caviar.",
+    "ingredients": [
+      "1/2 teaspoon baking powder",
+      "1/2 cup butter",
+      "Caviar, for topping",
+      "1 egg",
+      "1/2 cup sifted all-purpose flour",
+      "¾ cup milk",
+      "3 tablespoons sour cream, plus additional for topping blini",
+      "1/2 teaspoon sugar"
+    ],
+    "recipe": "In a large bowl, sift the flour and baking powder together. Add the milk, sugar and 2 tablespoons sour cream. Beat the egg until frothy, add to batter and stir well. Let batter stand for 20 minutes.Melt butter on a griddle or large skillet.  Fry small (2-3 inch) pancakes in very hot butter. Drain on paper towels. Top each blini with sour cream and caviar before serving.",
+    "time_to_cook": 45,
+    "url": "http://www.foodista.com/recipe/FR7746PB/sterling-cooper-blini-with-caviar"
+  },
+  {
+    "name": "Paneer Makhani",
+    "serves": 4,
+    "description": "Need a gluten free and lacto ovo vegetarian side dish? Paneer Makhani could be an outstanding recipe to try. One serving contains 295 calories, 9g of protein, and 26g of fat. For $2.05 per serving, this recipe covers 4% of your daily requirements of vitamins and minerals. This recipe serves 4. This recipe from Foodista has 10 fans. Head to the store and pick up paneer, salt, cumin powder, and a few other things to make it today. From preparation to the plate, this recipe takes approximately approximately 45 minutes. Taking all factors into account, this recipe earns a spoonacular score of 12%, which is not so awesome. Try paneer makhani , how to make paneer makhani | paneer s, Paneer Makhani (Paneer Butter Masala) (Restaurant Style), and Paneer Makhani for similar recipes.",
+    "ingredients": [
+      "1 cup cubed paneer ( Indian Cottage cheese)",
+      "1 medium onion, skinless",
+      "1 clove garlic",
+      "1 teaspoon grated ginger",
+      "1/2 teaspoon turmeric powder",
+      "1 teaspoon coriander powder",
+      "1 teaspoon cumin powder",
+      "2 teaspoons Tomato Paste, mixed thoroughly in a cup of water",
+      "2 teaspoons kasuri methi ( dried fenugreek leaves)",
+      "1/2 cup heavy whipping cream",
+      "salt to taste",
+      "1/2 teaspoon sugar",
+      "1 teaspoon canola oil",
+      "2 teaspoons Kashmiri mirch ( Kashmiri Red Chilli Powder)"
+    ],
+    "recipe": "Heat the oil in a pan. Grate the onion and the garlic into it. Add the grated ginger as well. Let it saut for 2 mins. Add in the turmeric powder, coriander powder, cumin powder and kashmiri mirch and saut for a couple more minutes. Add the kasuri methi and the tomato paste mixed in water. Add some more water if required. When it starts to boil, add the salt and paneer cubes. Let it cook in the gravy for a couple of minutes. Add the cream and sugar and mix well. Dont let it boil after you have added the cream, just simmer for 15 minutes or so.",
+    "time_to_cook": 45,
+    "url": "https://www.foodista.com/recipe/ZVKR6J5M/paneer-makhani"
+  },
+  {
+    "name": "Rum Raisin Carrot Cake with Cream Cheese Frosting",
+    "serves": 8,
+    "description": "One serving contains 1147 calories, 13g of protein, and 63g of fat. This recipe serves 8 and costs $2.8 per serving. 60 people were impressed by this recipe. It will be a hit at your Easter event. From preparation to the plate, this recipe takes roughly 45 minutes. A mixture of baking powder, vanillan extract, pecans, and a handful of other ingredients are all it takes to make this recipe so tasty. It is a good option if you're following a vegetarian diet. All things considered, we decided this recipe deserves a spoonacular score of 59%. This score is good. Try Carrot Cake With Cream Cheese Frosting, Carrot Cake with Cream Cheese Frosting, and Raw Carrot Cake With Cream Cheese Frosting for similar recipes.",
+    "ingredients": [
+      "2 teaspoons baking powder",
+      "2 teaspoons baking soda",
+      "1/2 cup buttermilk",
+      "1 pound carrots, peeled and coarsely shredded",
+      "1 teaspoon cinnamon",
+      "2 cups confectioners' sugar",
+      "2 8-ounces packages cream cheese, softened",
+      "1/2 cup dark rum",
+      "4 large eggs",
+      "2 cups all-purpose flour",
+      "Zest of 1 orange",
+      "1/2 cup chopped pecans (optional)",
+      "1 cup 1 pecans (4 ounces)",
+      "1 cup raisins",
+      "1 teaspoon salt",
+      "2 cups sugar",
+      "2 sticks unsalted butter, softened",
+      "1 tablespoon pure vanilla extract",
+      "1 1/2 teaspoons pure vanilla extract",
+      "1 cup vegetable oil"
+    ],
+    "recipe": "Soak raisins in rum, preferably overnight, until raisins are nice and plump.Preheat the oven to 325. Butter two 9-inch cake pans; line the bottoms with parchment. Butter the paper and flour the pans.For the cake:Spread the pecans on a baking sheet and toast for 8 minutes, until fragrant. Cool and finely chop.In a bowl, whisk the flour, baking powder, baking soda, cinnamon and salt.In a small bowl, whisk the oil, buttermilk and vanilla.In a large bowl, using an electric mixer, beat the eggs and sugar at high speed until pale, 5 minutes.Beat in the liquid ingredients, then beat in the dry ingredients just until moistened.Stir in the carrots, pecans and raisins.Divide the batter between the pans and bake the cakes for 55 minutes to 1 hour, until springy and golden.Let the cakes cool on a rack for 30 minutes, then unmold the cakes and let cool completely.For the Frosting:In a large bowl, using an electric mixer, beat the butter and cream cheese at high speed until light, about 5 minutes.Beat in the vanilla and orange zest, then the confectioners' sugar; beat at low speed until incorporated. Increase the speed to high and beat until light and fluffy, about 3 minutes.Peel off the parchment paper and invert one cake layer onto a plate. Spread with a slightly rounded cup of the frosting. Top with the second cake layer, right side up. Spread the top and sides with the remaining frosting and refrigerate the cake until chilled, about 1 hour.",
+    "time_to_cook": 45,
+    "url": "http://www.foodista.com/recipe/FDQ45DLN/rum-raisin-carrot-cake-with-cream-cheese-frosting"
+  },
+  {
+    "name": "Asparagus and Pea Soup: Real Convenience Food",
+    "serves": 2,
+    "description": "You can never have too many soup recipes, so give Asparagus and Pea Soup: Real Convenience Food a try. For $3.24 per serving, this recipe covers 25% of your daily requirements of vitamins and minerals. One serving contains 240 calories, 11g of protein, and 8g of fat. This recipe from fullbellysisters.blogspot.com has 204 fans. From preparation to the plate, this recipe takes about 20 minutes. It will be a hit at your Autumn event. If you have onion, peas, a couple of garlic cloves, and a few other ingredients on hand, you can make it. It is a good option if you're following a caveman, gluten free, primal, and vegan diet. All things considered, we decided this recipe deserves a spoonacular score of 96%. This score is spectacular. Try Butternut Squash & Pear Soup: Real Convenience Food, Tomato, Cucumber & Onion Salad with Feta Cheese: Real Convenience Food, and Everyday Granola from Real Food, Real Simple for similar recipes.",
+    "ingredients": [
+      "1 bag of frozen organic asparagus (preferably thawed)",
+      "1T EVOO (extra virgin olive oil)",
+      "a couple of garlic cloves",
+      "1/2 onion",
+      "2-3c of frozen organic peas",
+      "1 box low-sodium vegetable broth"
+    ],
+    "recipe": "Chop the garlic and onions.Saute the onions in the EVOO, adding the garlic after a couple of minutes; cook until the onions are translucent. Add the whole bag of asparagus and cover everything with the broth. Season with salt and pepper and a pinch of red pepper flakes, if using.Simmer until the asparagus is bright green and tender (if you've thawed the asparagus it will only take a couple of minutes). Turn off the heat and puree using an immersion blender.Add peas (the heat of the soup will quickly thaw them) and puree until smooth; add more until it reaches the thickness you like.Top with chives and a small dollop of creme fraiche or sour cream or greek yogurt.",
+    "time_to_cook": 20,
+    "url": "http://fullbellysisters.blogspot.com/2011/03/asparagus-and-pea-soup-real-convenience.html"
+  }
+]
