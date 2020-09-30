@@ -69,3 +69,11 @@ def show_recipes
     byebug
   end
 end
+
+def quit
+  PROMPT.select('Are you sure? would you like to save your Recipes?')
+  menu.choice({ name: 'Just quit already!', value: '1' })
+  menu.choice({ name: 'Quit and save my recipes! please?', value: '2' })
+  menu.choice({ name: 'Wait no it was a mistake take me back!', value: '3' })
+  byebug
+end

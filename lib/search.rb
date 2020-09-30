@@ -15,7 +15,7 @@ class Api
   def initialze
     read_recipes
   end
-  def search_random_recipes
+  def search_random_recipe
     content = JSON.parse(Faraday.get("#{@@api_root}/recipes/random#{@@api_key}").body)["recipes"]
     convert_api_data(content)
   end
@@ -36,7 +36,7 @@ class Api
  end
 
   def user_recipe(*)
-    @results = RecipeCard.new(:name, :serves, :description, :time_to_cook, :recipe, :url)
+    @results = RecipeCard.new(@results.values)
   end
 
   def write_recipes
@@ -46,23 +46,23 @@ class Api
   end
 
   def read_recipes
-    file = File.read(RECIPES_PATH)
-    file_hash = JSON.parse(file)
+    file_hash = JSON.parse(File.read(RECIPES_PATH))
     file_hash
+    
   end
 
   def select_recipe(num)
-    read_recipes[num].map do |k,r| 
-  puts "#{k}"
-  puts ""
-  puts "#{r}"
-  byebug
-end
+      read_recipes[num].map do |k,r| 
+    puts "#{k}"
+    puts ""
+    puts "#{r}"
+    end
   end
+  
 end
 
-# request = Api.new
-#request.read_recipes
-#p request.search_random_recipes
+request = Api.new
+#pp request.read_recipes
+#p request.search_random_recipe
 
 #request.write_recipes 
