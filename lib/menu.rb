@@ -4,7 +4,7 @@ require 'terminal-table'
 require 'colorize'
 # menu, access data and extract the data then display the data in a readable format
 class Menu
-  #Colorize_val = :color => :black, :background => :white
+  
   include RecipeHelper
   include FridgeFilter
   def initialize
@@ -12,15 +12,15 @@ class Menu
   end
 
   def welcome_text
-    puts "welcome to Recipe Finder 2000".colorize(:color => :black, :background => :white)
-    puts "".colorize(:background => white)
-    puts "this currently has more bugs then bethesda".colorize(:color => :black, :background => :white)
-    puts " I hope you bought a can of Raid".colorize(:color => :black, :background => :white)
+    puts "welcome to Recipe Finder 2000"
+    puts "".colorize(:background => :white)
+    puts "this currently has more bugs then bethesda".colorize(:white)
+    puts " I hope you bought a can of Raid"
   end
    byebug
   def display menu 
     PROMPT.select("Congratulations on making it this far! By my count you missed 300 bugs on the way!") do |menu|
-      menu.choice({name:'View saved reipes', value:'1'})
+      menu.choice({name:'View saved recipes', value:'1'})
       menu.choice({name:'Find a random recipe! Live a little! Cremebrulee for dinner?', value:'2'})
       menu.choice({name:'Write your own recipe', value:'3'})
       menu.choice({name:"Can't decide but have food in the fridge? filter based on what you've got!", value:'4'})
@@ -53,7 +53,7 @@ class Menu
     def exit_mode
         PROMPT.select('Are you sure? would you like to save your Recipes?')
         menu.choice({name:'Just quit already!', value:'1'})
-        menu.choice({name:'Quit and save my recipes! please', value:'2'})
+        menu.choice({name:'Quit and save my recipes! please?', value:'2'})
         menu.choice({name:'Wait no it was a mistake take me back!', value:'3'})
     end
     case exit_mode 

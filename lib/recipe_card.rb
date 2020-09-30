@@ -12,4 +12,5 @@ class RecipeCard
   def to_a
     [@name, @serves, @description, @time_to_cook, @recipe, @url]
   end
+  
 end

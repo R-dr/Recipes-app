@@ -1,33 +1,35 @@
-require_relative 'search'
+#require_relative 'search'
+require_relative 'recipehelper'
+require 'byebug'
+require 'JSON'
 require_relative 'recipe_card'
 class RecipeBook
   include RecipeHelper
-  attr_reader :book
+  attr_accessor :book
   def initalize
     @book = read_recipes
   end
 
   def read_recipes
-    file = File.read(File_path)
-
-    JSON.parse(file).map do |recipe|
-      byebug
-      i = 0
+    file = File.read(RECIPES_PATH)
+    JSON.parse(file).map do |rec|
       RecipeCard.new(
-        recipe[i]['name'],
-        recipe[i]['serves'],
-        recipe[i]['description'],
-        recipe[i]['recipe'],
-        recipe[i]['time_to_cook'],
-        recipe[i]['url']
+        rec['name'],
+        rec['serves'],
+        rec['description'],
+        rec['recipe'],
+        rec['time_to_cook'],
+        rec['url']
       )
+    
     end
-    i += 1
   end
-
-  def self.show_titles
-    @book.map { |recipe| recipe['title'] }
+byebug
+  def show_titles
+    @book.map{ |recipe| recipe['name'] }
   end
 end
 test = RecipeBook.new
+ test.read_recipes
 p test.read_recipes
+ test.show_titles

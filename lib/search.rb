@@ -3,48 +3,37 @@ require 'json'
 require 'tty-prompt'
 require 'byebug'
 require_relative 'recipe_card'
-module RecipeHelper
-  RECIPES_PATH = "../public/recipes.json"
-  PROMPT = TTY::Prompt.new
-end
+require_relative 'recipehelper'
+
 
 class Api
   include Faraday
   include RecipeHelper
-  @api_root = "https://api.spoonacular.com"
-  @api_key = "?apiKey=945916246cc3460dbfe56c71616e4d96"
+  @@api_root = "https://api.spoonacular.com"
+  @@api_key = "?apiKey=945916246cc3460dbfe56c71616e4d96"
   # @@api_search_by_type_for_fish= "https://api.spoonacular.com/recipes/complexSearch?apiKey=945916246cc3460dbfe56c71616e4d96&query=fish"
   def initialze
     read_recipes
   end
-  def search_complex_search(query)
-    parsed_hash = JSON.parse(Faraday.get("https://api.spoonacular.com/recipes/complexSearch?apiKey=945916246cc3460dbfe56c71616e4d96&query=#{query}").body)
-    content = parsed_hash["recipes"]
-    @results = {}
-    @results[:name] = content[0]["title"] # returns string
-    @results[:serves] = content[0]['servings']
-    @results[:description] = content[0]['summary'].gsub(/<\/?[^>]+>/, '')
-    @results[:recipe] = content[0]["instructions"].gsub(/<\/?[^>]+>/, '').gsub("\n", '') # returns string
-    @results[:time_to_cook] = content[0]["readyInMinutes"] # returns integer, turn to stirng if needed?
-    @results[:url] = content[0]['sourceUrl']
-    @results
-  end
-
   def search_api_recipes
-    parsed_hash = JSON.parse(Faraday.get("#{@api_root}/recipes/random#{@api_key}").body)
-    content = parsed_hash["recipes"]
-    @results ={}
-      @results[:name] = content[0]["title"] # returns string
-    @results[:serves] = content[0]['servings']
-    @results[:description] = content[0]['summary'].gsub(/<\/?[^>]+>/, '')
-    @results[:recipe] = content[0]["instructions"].gsub(/<\/?[^>]+>/, '').gsub("\n", '') # returns string
-    @results[:time_to_cook] = content[0]["readyInMinutes"] # returns integer, turn to stirng if needed?
-    @results[:url] = content[0]['sourceUrl']
-    @results
+    content = JSON.parse(Faraday.get("#{@@api_root}/recipes/random#{@@api_key}").body)["recipes"]
+    convert_api_data(content)
+    
   end
+ def convert_api_data(data)
+  @results = {}
+  @results[:name] = data[0]["title"] # returns string
+  @results[:serves] = data[0]['servings']
+  @results[:description] = data[0]['summary'].gsub(/<\/?[^>]+>/, '')
+  @results[:ingredients] = data[0]["extendedIngredients"].map{|s|s["originalString"]}
+  @results[:recipe] = data[0]["instructions"].gsub(/<\/?[^>]+>/, '').gsub("\n", '') # returns string
+  @results[:time_to_cook] = data[0]["readyInMinutes"] # returns integer, turn to stirng if needed?
+  @results[:url] = data[0]['sourceUrl']
+  @results
+ end
 
   def user_recipe(*)
-    @res0ults = RecipeCard.new(:name, :serves, :description, :time_to_cook, :recipe, :url)
+    @results = RecipeCard.new(:name, :serves, :description, :time_to_cook, :recipe, :url)
   end
 
   def write_recipes
@@ -59,14 +48,18 @@ class Api
     file_hash
   end
 
-  def filter(num, parameter)
-    read_recipes[num][parameter]
+  def select_recipe(num)
+    read_recipes[num].map do |k,r| 
+  puts "#{k}"
+  puts ""
+  puts "#{r}"
+  byebug
+end
   end
 end
 
 request = Api.new
-# request.write_recipes
 request.read_recipes
-request.filter(3, 'name')
-p request.user_recipe('0tim', 4, 'tiny tim', '20 mins', 'put him in the oven', 'www.tinytim.com')
-p request
+p request.search_api_recipes
+
+request.write_recipes
