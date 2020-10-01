@@ -4,12 +4,13 @@ require 'terminal-table'
 require 'colorize'
 require_relative 'recipehelper'
 # menu, access data and extract the data then display the data in a readable format
-class Menu < Api
+class Menu 
   include RecipeHelper
   # include FridgeFilter
   def initialize
     @recipebook = JSON.parse(File.read(RECIPES_PATH))
-      end
+    @new_recipe = Api.new
+  end
   
   def display_menu 
     PROMPT.select("Congratulations on making it this far! By my count you missed 300 bugs on the way!") do |menu|
@@ -29,8 +30,6 @@ class Menu < Api
         rows << [i] + [ recipe["name"]] + [recipe["serves"] ]
         i += 1
       end
-      
-      
         table = Terminal::Table.new headings: header, rows: rows, :style => {:width => 80}
         puts table
       choose_recipe
@@ -41,10 +40,10 @@ class Menu < Api
     number = gets.chomp.to_i
     display_recipe(number)
   end
+
   def display_recipe(num)
    terminal_key = @recipebook[num-1]
     rows = []
-    
     rows << [terminal_key['name']] 
       table = Terminal::Table.new headings: header = ['name'], rows: rows#, :style => {:width => 80}
     puts table
@@ -58,6 +57,24 @@ class Menu < Api
     puts 'Recipe'
     puts terminal_key['recipe']
   end
+  def search_new_recipe
+    @new_recipe.search_random_recipe
+    @new_recipe.write_recipes
+    terminal_table_new_recipe(@new_recipe.results)
+  end
+  def terminal_table_new_recipe(api_recipe)
+    header = ['name', 'serves']
+    rows = [[api_recipe[:name]] + [api_recipe[:serves]]]
+     
+     table = Terminal::Table.new headings: header, rows: rows#, :style => {:width => 80}
+      puts table
+      view_recipe
+  end
+  def view_recipe
+    PROMPT.yes?('want to see the recipe?') do |q|
+      q.positive 'yes'
+      q.negative 'no'
+
   def choices
     loop do
       case display_menu
@@ -65,7 +82,7 @@ class Menu < Api
         
         terminal_table_lander
       when '2'
-        @recipebook.search_random_recipe
+        search_new_recipe
       when '3'
         @recipebook.user_recipe
       when '4'
@@ -78,6 +95,7 @@ class Menu < Api
    
   end
 end
+
 
 menu = Menu.new
 menu.choices
