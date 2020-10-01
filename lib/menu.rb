@@ -4,12 +4,12 @@ require 'terminal-table'
 require 'colorize'
 require_relative 'recipehelper'
 # menu, access data and extract the data then display the data in a readable format
-class Menu 
+class Menu < Api
   include RecipeHelper
   # include FridgeFilter
   def initialize
     @recipebook = JSON.parse(File.read(RECIPES_PATH))
-  end
+      end
   
   def display_menu 
     PROMPT.select("Congratulations on making it this far! By my count you missed 300 bugs on the way!") do |menu|
@@ -20,28 +20,52 @@ class Menu
       menu.choice({name:'Exit', value:'5'})
     end 
   end
-  def terminal_table
-    header = gets.chomp.split(' ')
+  def terminal_table_lander
+    header = ['number' , 'name', 'serves']
+    i = 1
     rows = []
     para = header.map{|param|param}
       @recipebook.each do |recipe|
-        rows << [recipe["name"]] + [recipe["serves"]]
+        rows << [i] + [ recipe["name"]] + [recipe["serves"] ]
+        i += 1
       end
-      byebug
-        table = Terminal::Table.new headings: para, rows: rows, :style => {:width => 80}
+      
+      
+        table = Terminal::Table.new headings: header, rows: rows, :style => {:width => 80}
         puts table
-    
+      choose_recipe
   end
-  
-  
+  def choose_recipe
+    puts 'please select a recipe by number to display'
+    print 'number? '
+    number = gets.chomp.to_i
+    display_recipe(number)
+  end
+  def display_recipe(num)
+   terminal_key = @recipebook[num-1]
+    rows = []
+    
+    rows << [terminal_key['name']] 
+      table = Terminal::Table.new headings: header = ['name'], rows: rows#, :style => {:width => 80}
+    puts table
+    puts terminal_key['ingredients'].map{|item|item}
+    puts "
+    ".colorize( :background => :red)
+    puts "Description"
+    puts terminal_key['description']
+    puts "
+    ".colorize( :background => :red)
+    puts 'Recipe'
+    puts terminal_key['recipe']
+  end
   def choices
     loop do
       case display_menu
       when '1'
         
-        terminal_table
+        terminal_table_lander
       when '2'
-        #@recipebook.search_random_recipe
+        @recipebook.search_random_recipe
       when '3'
         @recipebook.user_recipe
       when '4'
