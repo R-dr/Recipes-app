@@ -21,7 +21,8 @@ class Menu
     puts "
     ".colorize( :background => :white)
     PROMPT.select("#{joke} 
-      your counter is at #{query_counter} out of 150 for the day, this search used #{query_use}, just remember each recipe takes about 1 point") do |menu|
+      your counter is at #{query_counter} out of 150 for the day, this search used #{query_use},
+       just remember each recipe takes about 1 point and refreshing this menu takes a point, you get 150 a day so you should be fine.") do |menu|
       menu.choice({name:'View saved recipes', value:'1'})
       menu.choice({name:'Find a random recipe! Live a little! Cremebrulee for dinner?', value:'2'})
       menu.choice({name:'Write your own recipe', value:'3'})
@@ -35,6 +36,7 @@ class Menu
   def terminal_table_lander(list)
     header = ['number' , 'name', 'serves']
     i = 1
+   
     rows = []
     list.each do |recipe|
         rows << [i] + [ recipe["name"]] + [recipe["serves"] ]
@@ -42,7 +44,11 @@ class Menu
       end
         table = Terminal::Table.new headings: header, rows: rows, :style => {:width => 80}
         puts table
-      choose_recipe(list)
+      if PROMPT.yes?('do you want to delete a recipe?') 
+         delete_saved_recipe(list) 
+      else 
+        choose_recipe(list)
+      end
   end
   def choose_recipe(arr)
     puts 'please select a recipe by number to display'
@@ -50,8 +56,21 @@ class Menu
     number = gets.chomp.to_i
     display_recipe(number,arr)
   end
+  def delete_saved_recipe(arr)
+    puts 'please enter the recipe number'
+    print ' >'
+    num = gets.chomp.to_i
+    if num - 1 > arr.length
+      puts "no recipe found"
+      choices
+    end
+    arr.delete_at(num-1)
+    File.write(RECIPES_PATH, JSON.pretty_generate(arr))
+    choices
+  end
 
   def display_recipe(num, list)
+    
    terminal_key = list[num-1]
     rows = []
     rows << [terminal_key['name']] 
@@ -66,6 +85,9 @@ class Menu
     ".colorize( :background => :red)
     puts 'Recipe'
     puts terminal_key['recipe']
+    puts "
+    ".colorize( :background => :red)
+    puts terminal_key['url']
   end
 ######################
 ###new recipe route###
@@ -78,11 +100,12 @@ def search_new_recipe
     puts 'what do you feel like? This search can take things like say "fish pasta eggs or even bagels!" just dont go entering number or anything and you\'re golden'
     #target = gets.chomp.downcase!
     
-    #puts 'what did i just say? two seconds ago? no numbers or symbols, got it?'if letter_check(target)
+    #
     terminal_table_lander(filtered_results)
   end
   def filtered_results
     search_para = gets.chomp
+    puts 'what did i just say? two seconds ago? no numbers or symbols, got it?' unless letter_check(search_para)
     result = []
     @new_recipe.read_recipes.each do|recipe|
        if recipe['ingredients'].join(' ').include? search_para

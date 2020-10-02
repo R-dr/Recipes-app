@@ -7,7 +7,7 @@ require_relative 'recipehelper'
 
 
 class Api
-  attr_reader :results 
+  attr_reader :results
   include Faraday
   include RecipeHelper
   @@api_root = "https://api.spoonacular.com"
@@ -35,7 +35,9 @@ class Api
   @results[:url] = data[0]['sourceUrl']
   @results
  end
-
+  def split_ingredients(ingredients)
+    ingredients.split(' ')
+  end
   def get_user_recipe
     recipe = RecipeCard.user_recipe
     recipebook = read_recipes
@@ -48,10 +50,16 @@ class Api
        recipe[:time_to_cook],
        recipe[:url]
      )
+     
      file = read_recipes
+     recipe[:ingredients] = recipe[:ingredients].split (' ')
+     if recipe.each_value{|value|value == "" }
+       puts ' you need to enter something for each input'
+      else
      file << recipe
        File.write(RECIPES_PATH, JSON.pretty_generate(file))
   end
+end
   def write_user_recipe
     data = @recipebook.map do |card|
       {
@@ -94,16 +102,10 @@ class Api
     puts "
     ".colorize( :background => :red)
     puts 'Recipe'
-    puts res[:recipe]    
+    puts res[:recipe]  
+    puts "
+    ".colorize( :background => :red)
+    puts res[:url]  
  end
   
 end
-
-
-
-
-#request = Api.new
-#pp request.read_recipes
- #request.search_random_recipe
-
-#request.write_recipes 

@@ -21,10 +21,11 @@ class RecipeCard
   def self.user_recipe
     recipe = {}
     HEADERS.each do |input|
-      puts "Type out your ingredients separated with spaces eg. banana shrimp" if input == :ingredients
+      puts "Type out your ingredients separated with commas eg. banana, shrimp, taco meat" if input == :ingredients
       puts "You dont need to enter a url but it migh be nice for inspiration?" if input == :url
       puts "Whats the #{input}?"
       print '> '
+      
       recipe[input] = gets.chomp
     end
     

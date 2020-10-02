@@ -8,4 +8,3 @@ require_relative 'recipe_card'
 menu = Menu.new
 menu.choices
 
-end
