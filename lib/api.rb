@@ -79,6 +79,7 @@ class Api
     file_hash
     
   end
+  
   def show_last_recipe(last_recipe)
     res = @results
     rows = []
@@ -93,11 +94,15 @@ class Api
     puts "
     ".colorize( :background => :red)
     puts 'Recipe'
-    puts res[:recipe]
+    puts res[:recipe]    
  end
+  
 end
 
-request = Api.new
+
+
+
+#request = Api.new
 #pp request.read_recipes
  #request.search_random_recipe
 
