@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-
 #gems
 require 'terminal-table'
 require 'colorize'

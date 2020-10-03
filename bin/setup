@@ -8,7 +8,3 @@ filepath = File.dirname __FILE__
 Dir.chdir(filepath)
 # actually install dependencies
 system("bundle install")
-
-reset = Api.new
-reset.search_random_recipes.write_recipes
-end
