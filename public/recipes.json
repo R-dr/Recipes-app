@@ -180,16 +180,62 @@
     "url": "http://www.afrolems.com/2014/10/31/rice-and-peas-with-coconut-curry-mackerel/"
   },
   {
-    "name": "stev",
-    "serves": "1",
-    "description": "roasted stev",
+    "name": "Captain America Shield Cookies",
+    "serves": 12,
+    "description": "The recipe Captain America Shield Cookies can be made in roughly roughly 45 minutes. This recipe serves 12. One serving contains 179 calories, 1g of protein, and 7g of fat. For 65 cents per serving, this recipe covers 2% of your daily requirements of vitamins and minerals. Only a few people made this recipe, and 6 would say it hit the spot. It works well as a dessert. A mixture of circular cookie cutters, star cookie cutter, coconut oil, and a handful of other ingredients are all it takes to make this recipe so tasty. It is a good option if you're following a dairy free diet. It is brought to you by Pink When. Taking all factors into account, this recipe earns a spoonacular score of 81%, which is excellent. Try Captain America M&M Sugar Cookies, America's Test Kitchen Chocolate Chip Cookies, and PB & America for similar recipes.",
     "ingredients": [
-      "stev",
-      "stevesa"
+      "2 cups red candy melts",
+      "2 tsp coconut oil",
+      "3 circular cookie cutters (2 inch in diameter, 1.5 inch in diameter, and another 0.5 inch in diameter)",
+      "Small star cookie cutter",
+      "Cornstarch",
+      "Store-bought blue cake fondant (about 3-4 oz.)",
+      "Store-bought white cake fondant (about 6-8 oz.)",
+      "12 pre-made sugar cookies (shape of a large circle, about 3 inches in diameter)",
+      "Vanilla buttercream"
     ],
-    "recipe": "cook stev",
-    "time_to_cook": "3days",
-    "url": "www.ggogogsadsas"
+    "recipe": "Line a baking sheet with wax paper. Microwave your candy and coconut oil in 30-second intervals until completely melted. Mix thoroughly.Using a fork, dip each sugar cookie into the melted candy and set carefully on lined baking sheet. Allow to set in the refrigerator for about one hour.Dust a clean working surface with cornstarch and start rolling out your fondant. Cut your white fondant with the largest cookie cutter and then using the 1.5 inch cookie cutter, cut a hole in the middle of it.Using your smallest circular cookie cutter, cut out blue fondant circles. Cut star shapes from the white fondant and use buttercream to glue it onto your blue fondant circles.Once the coated cookies are set, remove them fridge and start assembling. Using your buttercream as the glue, place your large white circle, then the blue one (with the star). Enjoy!",
+    "time_to_cook": 45,
+    "url": "https://www.pinkwhen.com/captain-america-shield-cookies/"
+  },
+  {
+    "name": "Banana Foster Bread Pudding",
+    "serves": 8,
+    "description": "Banana Foster Bread Pudding requires roughly roughly 45 minutes from start to finish. This recipe serves 8 and costs $1.75 per serving. Watching your figure? This lacto ovo vegetarian recipe has 1040 calories, 12g of protein, and 45g of fat per serving. A couple people made this recipe, and 27 would say it hit the spot. This recipe from Foodista requires bananas, bananas, milk, and heavy cream. It works well as a dessert. Overall, this recipe earns a solid spoonacular score of 44%. Users who liked this recipe also liked Bananas Foster Banana Pudding, Bananas Foster Bread Pudding, and Bananas Foster Bread Pudding.",
+    "ingredients": [
+      "1/2 C. - Butter (room temp)",
+      "1 1/2 C. - Brown Sugar",
+      "3 - Eggs",
+      "1 lb. - Bread (I used a brioche roll)",
+      "2 C. - Heavy Cream",
+      "1 1/2 C. - Milk",
+      "1 C. - Cream De Banana Liqueur",
+      "2 Tsp. - Ground Cinnamon",
+      "1 Tsp. - Vanilla",
+      "6 - Bananas (sliced)",
+      "2 - Bananas (sliced)",
+      "1/4 C. - Butter",
+      "1 C. - Brown Sugar"
+    ],
+    "recipe": "Preheat oven to 325 degrees.  In a large bowl, cream together the butter and sugar.  Beat in eggs then stir in the cream, milk, liqueur, cinnamon, vanilla and bread.  Once well combined fold in the sliced bananas carefully.  Pour into a 13x9 baking dish and cook for 90 minutes or until completely set.  This can be served hot, room temp or cold. It can be topped with vanilla ice cream, whipped cream or as I did with the following topping.In a sauce pan over medium high heat melt the butter then add the brown sugar.  Once melted add the banana slices and stir gently, cook until the syrup has reduced and the bananas have caramelized.  This will take about 5-10 minutes, be careful to not let your sugar burn. When ready ladle some of this hot sauce over each serving of bread pudding.",
+    "time_to_cook": 45,
+    "url": "https://www.foodista.com/recipe/4RYKKRMV/banana-foster-bread-pudding"
+  },
+  {
+    "name": "Brown Rice Mushroom Pilaf",
+    "serves": 4,
+    "description": "Brown Rice Mushroom Pilaf is a side dish that serves 4. One serving contains 224 calories, 5g of protein, and 5g of fat. For 42 cents per serving, this recipe covers 11% of your daily requirements of vitamins and minerals. 15 people have tried and liked this recipe. It is brought to you by Foodista. Head to the store and pick up unrefined sunflower oil, ground pepper, water, and a few other things to make it today. From preparation to the plate, this recipe takes approximately approximately 45 minutes. It is a good option if you're following a gluten free, dairy free, lacto ovo vegetarian, and vegan diet. Overall, this recipe earns a tremendous spoonacular score of 93%. Brown Rice-Mushroom Pilaf, Quick Brown Rice and Mushroom Pilaf, and Brown Rice Pilaf are very similar to this recipe.",
+    "ingredients": [
+      "1 large onion, chopped",
+      "1 cup brown rice",
+      "1 cup sliced fresh mushrooms (I used small-size champignons; don't use canned mushrooms because they're absolutely tasteless.)",
+      "1 tbsp unrefined sunflower oil",
+      "2 cups water",
+      "sea salt, to taste",
+      "1/3 tsp ground pepper"
+    ],
+    "recipe": "Heat oil in a large saucepan over medium heat. Saut chopped onion and sliced mushrooms for 5 minutes.Add brown rice and stir to coat in oil.Add water.Bring to a boil, then simmer for 30 minutes. Remove from heat and cover with a lid. Let it rest until all liquid is absorbed.",
+    "time_to_cook": 45,
+    "url": "https://www.foodista.com/recipe/S4DB57DW/brown-rice-mushroom-pilaf"
   }
- 
 ]

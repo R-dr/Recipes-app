@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+#gems
+require 'terminal-table'
+require 'colorize'
+require 'json'
+require 'optparse'
+#files
+require_relative '../lib/api'
+require_relative '../lib/menu'
+require_relative '../lib/recipe_card'
+VERSION = '1.0.0'
+menu = Menu.new
+menu.choices
+
+
+parser = OptionParser.new do |opts|
+    opts.banner = 'welcome to Recipe Finder 2000! Usage: app [options]'
+    opts.on('-v', '--version', 'Display the Version') do
+        puts "You are on Version #{VERSION}"
+    end
+
+    opts.on('-h', '--help', 'Display help') do 
+        puts opts
+        
+        puts "if you've deleted the recipes.json file run the -init command to make a new file and get the app running again"
+        exit
+    end
+    
+    opts.on('-init', '-reset', 'Fix JSON file missing') do
+        reset = Api.new
+        reset.search_random_recipes.write_recipes
+    end
+end

@@ -22,7 +22,7 @@ class RecipeCard
     recipe = {}
     HEADERS.each do |input|
       puts "Type out your ingredients separated with commas eg. banana, shrimp, taco meat" if input == :ingredients
-      puts "You dont need to enter a url but it migh be nice for inspiration?" if input == :url
+      puts "You  need to enter a url it might be nice for inspiration?" if input == :url
       puts "Whats the #{input}?"
       print '> '
       

@@ -52,14 +52,15 @@ class Api
      )
      
      file = read_recipes
-     recipe[:ingredients] = recipe[:ingredients].split (' ')
-     if recipe.each_value{|value|value == "" }
-       puts ' you need to enter something for each input'
-      else
+     recipe[:ingredients] = recipe[:ingredients].split(' ')
+     recipe.each_value do |value| if value.length < 1 
+      puts ' you need to enter something for each input'
+    end 
+    end
      file << recipe
        File.write(RECIPES_PATH, JSON.pretty_generate(file))
-  end
-end
+    end
+  
   def write_user_recipe
     data = @recipebook.map do |card|
       {

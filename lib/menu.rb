@@ -22,7 +22,7 @@ class Menu
     ".colorize( :background => :white)
     PROMPT.select("#{joke} 
       your counter is at #{query_counter} out of 150 for the day, this search used #{query_use},
-       just remember each recipe takes about 1 point and refreshing this menu takes a point, you get 150 a day so you should be fine.") do |menu|
+       just remember each recipe takes about 1 point and refreshing this menu takes 1 point, you get 150 a day so you should be fine.") do |menu|
       menu.choice({name:'View saved recipes', value:'1'})
       menu.choice({name:'Find a random recipe! Live a little! Cremebrulee for dinner?', value:'2'})
       menu.choice({name:'Write your own recipe', value:'3'})
@@ -97,20 +97,24 @@ def search_new_recipe
     terminal_table_new_recipe(@new_recipe.results)
   end
   def search_targeted_recipe
-    puts 'what do you feel like? This search can take things like say "fish pasta eggs or even bagels!" just dont go entering number or anything and you\'re golden'
-    #target = gets.chomp.downcase!
-    
-    #
+    puts 'what do you feel like? This search can take things like say "fish pasta eggs or even bagels!" just dont go entering numbers or anything and you\'re golden'
     terminal_table_lander(filtered_results)
   end
   def filtered_results
     search_para = gets.chomp
-    puts 'what did i just say? two seconds ago? no numbers or symbols, got it?' unless letter_check(search_para)
     result = []
+    unless letter_check(search_para)
+      puts 'it seems like you entered a number or a symbol, dont do that..'
+      search_targeted_recipe
+    end
     @new_recipe.read_recipes.each do|recipe|
-       if recipe['ingredients'].join(' ').include? search_para
+       if recipe['ingredients'].join(' ').downcase!.include? search_para
         result << recipe
        end
+      end
+      if result.empty?
+       puts "Sorry  you don't have any recipes with those items, please try again."
+       choices
       end
       result
   end
