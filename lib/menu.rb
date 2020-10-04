@@ -12,7 +12,7 @@ class Menu
     @new_recipe = Api.new
     
   end
-  
+  # menu where user choses what to do, is refreshed through choices every time the user completes a loop
   def display_menu 
     faraday_return = Faraday.get('https://api.spoonacular.com/food/jokes/random?apiKey=945916246cc3460dbfe56c71616e4d96')
     query_counter = faraday_return.headers["x-api-quota-used"]
@@ -33,6 +33,7 @@ class Menu
   #######################
   ##saved recipes route##
   #######################
+  # displays recipes in table format
   def terminal_table_lander(list)
     header = ['number' , 'name', 'serves']
     i = 1
@@ -50,12 +51,7 @@ class Menu
         choose_recipe(list)
       end
   end
-  def choose_recipe(arr)
-    puts 'please select a recipe by number to display'
-    print 'number? '
-    number = gets.chomp.to_i
-    display_recipe(number,arr)
-  end
+  # user is prompted to delete a recipe or not, this was the simplest implementation of this so it occurs before they make a selection to view a recipe 
   def delete_saved_recipe(arr)
     puts 'please enter the recipe number'
     print ' >'
@@ -68,7 +64,14 @@ class Menu
     File.write(RECIPES_PATH, JSON.pretty_generate(arr))
     choices
   end
-
+  # user is prompted to chose a recipe based on index -1 formula to display recipe
+  def choose_recipe(arr)
+    puts 'please select a recipe by number to display'
+    print 'number? '
+    number = gets.chomp.to_i
+    display_recipe(number,arr)
+  end
+# user choses a recipe based on the index value +1 stored in i which is displayed beside the recipes on the table 
   def display_recipe(num, list)
     
    terminal_key = list[num-1]
@@ -76,14 +79,15 @@ class Menu
     rows << [terminal_key['name']] 
       table = Terminal::Table.new headings: header = ['name'], rows: rows
     puts table
+    puts 'Ingredients'.colorize(:color => :white, :background => :red)
     puts terminal_key['ingredients'].map{|item|item}
     puts "
     ".colorize( :background => :red)
-    puts "Description"
+    puts "Description".colorize(:color => :white, :background => :red)
     puts terminal_key['description']
     puts "
     ".colorize( :background => :red)
-    puts 'Recipe'
+    puts 'Recipe'.colorize(:color => :white, :background => :red)
     puts terminal_key['recipe']
     puts "
     ".colorize( :background => :red)
@@ -92,14 +96,18 @@ class Menu
 ######################
 ###new recipe route###
 ######################
-def search_new_recipe
+# uses api to display random recipe
+  def search_new_recipe
     @new_recipe.search_random_recipe
     terminal_table_new_recipe(@new_recipe.results)
   end
+  #filters saved recipes based on a search term, returns a message if there is no recipe with that term  
+
   def search_targeted_recipe
     puts 'what do you feel like? This search can take things like say "fish pasta eggs or even bagels!" just dont go entering numbers or anything and you\'re golden'
     terminal_table_lander(filtered_results)
   end
+  # takes the search term and stores the result in an array so that it can be displayed in a table format
   def filtered_results
     search_para = gets.chomp
     result = []
@@ -124,11 +132,11 @@ def search_new_recipe
   #######################
   ##checking user input##
   #######################
+  #basically an if check that returns true if there is only letters used in filtered results 
   def letter_check(str)
     str[/[a-z]+/]  == str
   end
-  #basically an if check that returns true if there is only letters used in filtered results 
-
+# stores the recipe in app memory before prompting the user to view
   def terminal_table_new_recipe(api_recipe)
     header = ['name', 'serves']
     rows = [[api_recipe[:name]] + [api_recipe[:serves]]]
@@ -137,6 +145,7 @@ def search_new_recipe
       puts table
       view_recipe_choice
   end
+  # where the user can choose to view the new recipe or search again after viewwing the user can decide if they want to save it at that point to the recipes.JSON file
   def view_recipe
     PROMPT.select('want to see the recipe?') do |menu|
       menu.choice({name:'yes', value:'1'})
@@ -144,6 +153,7 @@ def search_new_recipe
       menu.choice({name:'no, quit', value:'3'})
     end
   end
+  # router to either view or search again, user may exitt at this point as well
     def view_recipe_choice
       case view_recipe
       when '1'
@@ -155,6 +165,7 @@ def search_new_recipe
         exit
       end
     end
+    # user is prompted to save the new recipe
     def save_random_recipe
       if PROMPT.yes?('Do you want to save this recipe?')
         @new_recipe.write_recipes
@@ -163,7 +174,7 @@ def search_new_recipe
         choices
       end
     end
-    
+    #this takes the return of the view recipe choice and acts accordingly
     def save_recipe
       case view_recipe_choice
       when '1'
@@ -176,7 +187,7 @@ def search_new_recipe
       end
     end
      
-
+# apps main logic router 
   def choices
     loop do
       case display_menu

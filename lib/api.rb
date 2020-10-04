@@ -10,9 +10,10 @@ class Api
   attr_reader :results
   include Faraday
   include RecipeHelper
+  # API key and root for visibilty change api key value should you wish to create your own account at www.spoonacular.com
   @@api_root = "https://api.spoonacular.com"
   @@api_key = "?apiKey=945916246cc3460dbfe56c71616e4d96"
-  # @@api_search_by_type_for_fish= "https://api.spoonacular.com/recipes/complexSearch?apiKey=945916246cc3460dbfe56c71616e4d96&query=fish"
+  
   def initialze
     @recipebook = read_recipes
   end
@@ -20,7 +21,7 @@ class Api
     content = JSON.parse(Faraday.get("#{@@api_root}/recipes/random#{@@api_key}").body)["recipes"]
     convert_api_data(content)
   end
-  
+  # converts the parsed data from the faraday response into a workable object for the app to read and write
  def convert_api_data(data)
   @results = {}
   @results[:name] = data[0]["title"] # returns string
@@ -32,9 +33,11 @@ class Api
   @results[:url] = data[0]['sourceUrl']
   @results
  end
+ # makes ingredients into an array so they are displayed when the user wants to view a recipe 
   def split_ingredients(ingredients)
     ingredients.split(' ')
   end
+  # method for user recipe to be writen to recipe book then saved
   def get_user_recipe
     recipe = RecipeCard.user_recipe
     recipebook = read_recipes
@@ -57,7 +60,7 @@ class Api
      file << recipe
        File.write(RECIPES_PATH, JSON.pretty_generate(file))
     end
-  
+  # method for writing the users recipe
   def write_user_recipe
     data = @recipebook.map do |card|
       {
@@ -74,18 +77,19 @@ class Api
     file << data
       File.write(RECIPES_PATH, JSON.pretty_generate(file))
   end
+  # writes api recipes into JSON file
   def write_recipes
     @file = read_recipes
     @file << @results
         File.write(RECIPES_PATH, JSON.pretty_generate(@file))
   end
-
+# parses JSON file and reads them so the app can generate the recipes onto the screen
   def read_recipes
     file_hash = JSON.parse(File.read(RECIPES_PATH))
     file_hash
     
   end
-  
+  # displays temporary recipe afterwards user is prompted to save or not recipe only exists in app memory at this point
   def show_last_recipe(last_recipe)
     res = @results
     rows = []
@@ -105,6 +109,7 @@ class Api
     ".colorize( :background => :red)
     puts res[:url]  
  end
+ # fix if the user deletes all recipes or deletes recipe.json file
  def reset
   content = JSON.parse(Faraday.get("#{@@api_root}/recipes/random#{@@api_key}").body)["recipes"]
   reset_book = convert_api_data(content)
