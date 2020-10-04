@@ -13,7 +13,7 @@
 3. `git clone` the app to your home directory
 
 ```bash
-git clone https://github.com/R-dr/Recipes-appRecipes_app.git ~/Recipes_app
+git clone https://github.com/R-dr/Recipes-app ~/Recipes_app
 ```
 
 4. Run the `setup` executable file
@@ -37,6 +37,7 @@ export PATH=$PATH:$HOME/Recipes_app/bin
 ```bash
 Recipes_app
 ```
+scroll to the bottom to view default github readme
 
 ## Software Development Plan
 ### statement of purpose and scope
@@ -118,6 +119,14 @@ Here is a link to [my board](https://trello.com/b/vckpMdRt/recipes-app).
 
 ## Tests
 
-i ran self tests constantly, here is a log of my final tests
+i ran self tests constantly, here is a log of my final  manual tests
 ![test-log](docs/Testlog.png)
+i attempted to use Rspec to test my app but found myself getting a little lost in what to test based on my own logic. i've included the rspec file as well hopefully you can see what i was trying to test and that it should have worked or not but as it stands i hope my own manual test and attempts to break my code will suffice 
+
+# default github README follows here
+Welcome to my first app it's a recipe finder app which grabs a random recipe from the spoonacular api, you can sign up [here](https://spoonacular.com/) for your own key if you trial this and find it helpful then once you've signed up simply change the value of @@api_key in the api.rb file  to a string containing your api key and the app will take care of the rest
+
+should you for any reason delete all the recipes in the recipes.json file simply run the app with either the -i flag or --init and this remakes the file and the app is able to be used once more. the reason being is the app need that file to have some valid input or it wont have anything to read! so it wont function
+
+in the future i plan to rework the display method for the recipes themselves to be more user friendly but i did the best i could manage at the time of making this app 
 
