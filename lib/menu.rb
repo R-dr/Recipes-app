@@ -127,7 +127,7 @@ def search_new_recipe
   def letter_check(str)
     str[/[a-z]+/]  == str
   end
-  #basically an if check that returns true if there is only letters
+  #basically an if check that returns true if there is only letters used in filtered results 
 
   def terminal_table_new_recipe(api_recipe)
     header = ['name', 'serves']
@@ -197,5 +197,4 @@ def search_new_recipe
 end
 
 
-menu = Menu.new
-menu.choices
+

@@ -20,10 +20,7 @@ class Api
     content = JSON.parse(Faraday.get("#{@@api_root}/recipes/random#{@@api_key}").body)["recipes"]
     convert_api_data(content)
   end
-  def search_complex_search(query)
-    parsed_hash = JSON.parse(Faraday.get("https://api.spoonacular.com/recipes/complexSearch?apiKey=945916246cc3460dbfe56c71616e4d96&query=#{query}&addRecipeInformation=true").body)['recipes']
-    convert_api_data(parsed_hash)
-  end
+  
  def convert_api_data(data)
   @results = {}
   @results[:name] = data[0]["title"] # returns string
@@ -54,7 +51,7 @@ class Api
      file = read_recipes
      recipe[:ingredients] = recipe[:ingredients].split(' ')
      recipe.each_value do |value| if value.length < 1 
-      puts ' you need to enter something for each input'
+      puts 'Recipe not saved, you need to enter something for each input'
     end 
     end
      file << recipe
@@ -108,5 +105,11 @@ class Api
     ".colorize( :background => :red)
     puts res[:url]  
  end
-  
+ def reset
+  content = JSON.parse(Faraday.get("#{@@api_root}/recipes/random#{@@api_key}").body)["recipes"]
+  reset_book = convert_api_data(content)
+  file = []
+  file << reset_book
+  File.write(RECIPES_PATH, JSON.pretty_generate(file))
+ end
 end
